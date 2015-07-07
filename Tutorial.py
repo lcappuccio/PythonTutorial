@@ -52,3 +52,14 @@ dataTuple = (999,111,222,333)
 print dataTuple
 print dataTuple[1]
 
+# Dictionaries
+dict = {}
+dict["Hello"] = "Ciao"
+dict["Yes"] = "Si"
+dict["No"] = "No"
+dict["Goodbye"] = "Arrivederci"
+dict[76] = "Settantasei"
+
+print dict["Hello"]
+print dict["Goodbye"]
+print dict[76]
