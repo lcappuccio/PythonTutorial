@@ -93,3 +93,12 @@ userGuess = int(raw_input("Guess number from 0:10 : "))
 while userGuess != randomNumber:
     userGuess = int(raw_input("Guess again: "))
 print "Guessed"
+
+# Functions
+def returnsString():
+    return "A string"
+print returnsString()
+
+def pow(x):
+    return x**x
+print pow(2)
