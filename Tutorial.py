@@ -8,13 +8,13 @@ print("Hello world")
 # Some variables and print them
 x = 3
 f = 3.14159
-name = "Python"
+aString = "Python"
 bigNumber = 313459L
 
 print x
 print f
 print x * f
-print name
+print aString
 
 # Strings manipulation
 sentence = "This is a python tutorial"
@@ -29,25 +29,25 @@ print sentence.replace('tutorial', 'beginner\'s guide')
 name1 = "Pippo"
 name2 = "Pluto"
 if name1 == name2:
-    print "They are equal"
+	print "They are equal"
 else:
-    print "Not equal"
+	print "Not equal"
 
 # Some string methods
 print len(name1)
 print name1.upper()
 
 # Lists
-list = ['Pippo', 'Pluto', 'Paperino', 'Paperone']
-print list
-list.append("ShouldNotBeHere")
-print list
-list.remove("ShouldNotBeHere")
-print list
-list.sort()
-print list
-list.reverse()
-print list
+listDisney = ['Pippo', 'Pluto', 'Paperino', 'Paperone']
+print listDisney
+listDisney.append("ShouldNotBeHere")
+print listDisney
+listDisney.remove("ShouldNotBeHere")
+print listDisney
+listDisney.sort()
+print listDisney
+listDisney.reverse()
+print listDisney
 
 # Tuples
 dataTuple = (999, 111, 222, 333)
@@ -55,16 +55,16 @@ print dataTuple
 print dataTuple[1]
 
 # Dictionaries
-dict = {}
-dict["Hello"] = "Ciao"
-dict["Yes"] = "Si"
-dict["No"] = "No"
-dict["Goodbye"] = "Arrivederci"
-dict[76] = "Settantasei"
+dictionaryData = {}
+dictionaryData["Hello"] = "Ciao"
+dictionaryData["Yes"] = "Si"
+dictionaryData["No"] = "No"
+dictionaryData["Goodbye"] = "Arrivederci"
+dictionaryData[76] = "Settantasei"
 
-print dict["Hello"]
-print dict["Goodbye"]
-print dict[76]
+print dictionaryData["Hello"]
+print dictionaryData["Goodbye"]
+print dictionaryData[76]
 
 # Casting
 x = 3
@@ -81,15 +81,174 @@ print int(x)
 x = 3
 y = 10
 if x < y:
-    print "X is smaller than y"
+	print "X is smaller than y"
 else:
-    print "X is bigger than y"
+	print "X is bigger than y"
 
 # A simple game
 import _random
-randomNumber = random.randint(0,10)
-print randomNumber
-userGuess = int(raw_input("Guess number from 0:10 : "))
-while userGuess != randomNumber:
-    userGuess = int(raw_input("Guess again: "))
-print "Guessed"
+# randomNumber = random.randint(0,10)
+# print randomNumber
+# userGuess = int(raw_input("Guess number from 0:10 : "))
+# while userGuess != randomNumber:
+#     userGuess = int(raw_input("Guess again: "))
+# print "Guessed"
+
+# Functions
+def returnsString():
+	return "A string"
+
+
+print returnsString()
+
+
+def pow(x):
+	return x ** x
+
+
+print pow(2)
+
+# Loops
+for item in listDisney:
+	print item
+
+for i in range(0, 50):
+	print i
+
+# A simple class
+class Person:
+	name = ""
+
+	def __init__(self, name):
+		self.name = name
+
+	def sayGreeting(self):
+		# The "self" is necessary beacause "name" is already defined in the namespace in line 11
+		print "Hello, my name is " + self.name
+
+
+pippo = Person("Pippo")
+pluto = Person("Pluto")
+paperino = Person("Paperino")
+
+pippo.sayGreeting()
+pluto.sayGreeting()
+paperino.sayGreeting()
+
+# Inheritance
+class Programmer(Person):
+	def __init__(self, name):
+		self.name = name
+
+	def doing(self):
+		print "Learning python"
+
+
+programmer = Programmer("Nerd")
+programmer.sayGreeting()
+programmer.doing()
+
+# Polymorphism with function
+class Bear(object):
+	def sound(self):
+		print "Groarrr"
+
+
+class Dog(object):
+	def sound(self):
+		print "Woof woof!"
+
+
+def makeSound(animalType):
+	animalType.sound()
+
+
+bearObj = Bear()
+dogObj = Dog()
+
+makeSound(bearObj)
+makeSound(dogObj)
+
+# Polymorphism with class
+class Document:
+	def __init__(self, type):
+		self.type = type
+
+	def show(self):
+		raise NotImplementedError("Subclass must implement")
+
+
+class documentPdf(Document):
+	def show(self):
+		return "PDF content"
+
+
+class documentRtf(Document):
+	def show(self):
+		return "RTF content"
+
+
+documents = [documentPdf("PDF"), documentRtf("RTF"), documentPdf("Other PDF")]
+
+for document in documents:
+	print document.type + ": " + document.show()
+
+# Factory patterns
+class Car(object):
+	def factory(type):
+		if type == "Racecar":
+			return Racecar()
+		if type == "Van":
+			return Van()
+		assert 0, "Bad car creation: " + type
+
+	factory = staticmethod(factory)
+
+
+class Racecar(Car):
+	def drive(self): print("Racecar driving.")
+
+
+class Van(Car):
+	def drive(self): print("Van driving.")
+
+# Create object using factory.
+vehicleObject = Car.factory("Racecar")
+vehicleObject.drive()
+
+# Recursion
+import sys
+# This will override the 1000 recursion limit
+sys.setrecursionlimit(5000)
+
+
+def factorial(n):
+	if n == 1:
+		return 1
+	else:
+		return n * factorial(n - 1)
+
+
+print factorial(15)
+
+# Logging
+import logging
+
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s|%(levelname)s|%(message)s')
+logging.info("This is a message")
+
+# Threads
+import threading
+
+
+class MyThread(threading.Thread):
+	def __init__(self, x):
+		self.__x = x
+		threading.Thread.__init__(self)
+
+	def run(self):
+		print str(self.__x)
+
+# Start 10 threads
+for i in range(10):
+	MyThread(i).start()
