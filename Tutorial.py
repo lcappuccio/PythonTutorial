@@ -1,3 +1,5 @@
+import random
+
 __author__ = 'leo'
 
 # A classic
@@ -36,7 +38,7 @@ print len(name1)
 print name1.upper()
 
 # Lists
-list = ['Pippo','Pluto','Paperino','Paperone']
+list = ['Pippo', 'Pluto', 'Paperino', 'Paperone']
 print list
 list.append("ShouldNotBeHere")
 print list
@@ -48,7 +50,7 @@ list.reverse()
 print list
 
 # Tuples
-dataTuple = (999,111,222,333)
+dataTuple = (999, 111, 222, 333)
 print dataTuple
 print dataTuple[1]
 
@@ -74,3 +76,20 @@ print int(x)
 # This will fail!
 # w = "1a1"
 # print int(w)
+
+# Conditional Statements
+x = 3
+y = 10
+if x < y:
+    print "X is smaller than y"
+else:
+    print "X is bigger than y"
+
+# A simple game
+import _random
+randomNumber = random.randint(0,10)
+print randomNumber
+userGuess = int(raw_input("Guess number from 0:10 : "))
+while userGuess != randomNumber:
+    userGuess = int(raw_input("Guess again: "))
+print "Guessed"
