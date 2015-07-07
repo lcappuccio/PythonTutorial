@@ -8,13 +8,13 @@ print("Hello world")
 # Some variables and print them
 x = 3
 f = 3.14159
-name = "Python"
+aString = "Python"
 bigNumber = 313459L
 
 print x
 print f
 print x * f
-print name
+print aString
 
 # Strings manipulation
 sentence = "This is a python tutorial"
@@ -128,3 +128,17 @@ paperino = Person("Paperino")
 pippo.sayGreeting()
 pluto.sayGreeting()
 paperino.sayGreeting()
+
+# Inheritance
+class Programmer(Person):
+
+    def __init__(self, name):
+        self.name = name
+
+    def doing(self):
+        print "Learning python"
+
+programmer = Programmer("Nerd")
+programmer.sayGreeting()
+programmer.doing()
+
