@@ -142,3 +142,43 @@ programmer = Programmer("Nerd")
 programmer.sayGreeting()
 programmer.doing()
 
+# Polymorphism with function
+class Bear(object):
+    def sound(self):
+        print "Groarrr"
+
+class Dog(object):
+    def sound(self):
+        print "Woof woof!"
+
+def makeSound(animalType):
+    animalType.sound()
+
+
+bearObj = Bear()
+dogObj = Dog()
+
+makeSound(bearObj)
+makeSound(dogObj)
+
+# Polymorphism with class
+class Document:
+
+    def __init__(self, type):
+        self.type = type
+
+    def show(self):
+        raise NotImplementedError("Subclass must implement")
+
+class documentPdf(Document):
+    def show(self):
+        return "PDF content"
+
+class documentRtf(Document):
+    def show(self):
+        return "RTF content"
+
+documents = [documentPdf("PDF"), documentRtf("RTF"), documentPdf("Other PDF")]
+
+for document in documents:
+    print document.type + ": " + document.show()
