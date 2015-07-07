@@ -97,17 +97,22 @@ import _random
 # Functions
 def returnsString():
     return "A string"
+
+
 print returnsString()
 
+
 def pow(x):
-    return x**x
+    return x ** x
+
+
 print pow(2)
 
 # Loops
 for item in listDisney:
     print item
 
-for i in range(0,50):
+for i in range(0, 50):
     print i
 
 # A simple class
@@ -121,6 +126,7 @@ class Person:
         # The "self" is necessary beacause "name" is already defined in the namespace in line 11
         print "Hello, my name is " + self.name
 
+
 pippo = Person("Pippo")
 pluto = Person("Pluto")
 paperino = Person("Paperino")
@@ -131,12 +137,12 @@ paperino.sayGreeting()
 
 # Inheritance
 class Programmer(Person):
-
     def __init__(self, name):
         self.name = name
 
     def doing(self):
         print "Learning python"
+
 
 programmer = Programmer("Nerd")
 programmer.sayGreeting()
@@ -147,9 +153,11 @@ class Bear(object):
     def sound(self):
         print "Groarrr"
 
+
 class Dog(object):
     def sound(self):
         print "Woof woof!"
+
 
 def makeSound(animalType):
     animalType.sound()
@@ -163,22 +171,68 @@ makeSound(dogObj)
 
 # Polymorphism with class
 class Document:
-
     def __init__(self, type):
         self.type = type
 
     def show(self):
         raise NotImplementedError("Subclass must implement")
 
+
 class documentPdf(Document):
     def show(self):
         return "PDF content"
+
 
 class documentRtf(Document):
     def show(self):
         return "RTF content"
 
+
 documents = [documentPdf("PDF"), documentRtf("RTF"), documentPdf("Other PDF")]
 
 for document in documents:
     print document.type + ": " + document.show()
+
+# Factory patterns
+class Car(object):
+    def factory(type):
+        if type == "Racecar":
+            return Racecar()
+        if type == "Van":
+            return Van()
+        assert 0, "Bad car creation: " + type
+
+    factory = staticmethod(factory)
+
+
+class Racecar(Car):
+    def drive(self): print("Racecar driving.")
+
+
+class Van(Car):
+    def drive(self): print("Van driving.")
+
+# Create object using factory.
+vehicleObject = Car.factory("Racecar")
+vehicleObject.drive()
+
+# Recursion
+import sys
+# This will override the 1000 recursion limit
+sys.setrecursionlimit(5000)
+
+
+def factorial(n):
+    if n == 1:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+
+print factorial(15)
+
+# Logging
+import logging
+
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s|%(levelname)s|%(message)s')
+logging.info("This is a message")
