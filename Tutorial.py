@@ -63,3 +63,14 @@ dict[76] = "Settantasei"
 print dict["Hello"]
 print dict["Goodbye"]
 print dict[76]
+
+# Casting
+x = 3
+y = 3.14159
+print str(x) + ", " + str(y)
+print str(x + y)
+z = "111"
+print int(x)
+# This will fail!
+# w = "1a1"
+# print int(w)
