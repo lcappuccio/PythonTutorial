@@ -38,16 +38,16 @@ print len(name1)
 print name1.upper()
 
 # Lists
-list = ['Pippo', 'Pluto', 'Paperino', 'Paperone']
-print list
-list.append("ShouldNotBeHere")
-print list
-list.remove("ShouldNotBeHere")
-print list
-list.sort()
-print list
-list.reverse()
-print list
+listDisney = ['Pippo', 'Pluto', 'Paperino', 'Paperone']
+print listDisney
+listDisney.append("ShouldNotBeHere")
+print listDisney
+listDisney.remove("ShouldNotBeHere")
+print listDisney
+listDisney.sort()
+print listDisney
+listDisney.reverse()
+print listDisney
 
 # Tuples
 dataTuple = (999, 111, 222, 333)
@@ -55,16 +55,16 @@ print dataTuple
 print dataTuple[1]
 
 # Dictionaries
-dict = {}
-dict["Hello"] = "Ciao"
-dict["Yes"] = "Si"
-dict["No"] = "No"
-dict["Goodbye"] = "Arrivederci"
-dict[76] = "Settantasei"
+dictionaryData = {}
+dictionaryData["Hello"] = "Ciao"
+dictionaryData["Yes"] = "Si"
+dictionaryData["No"] = "No"
+dictionaryData["Goodbye"] = "Arrivederci"
+dictionaryData[76] = "Settantasei"
 
-print dict["Hello"]
-print dict["Goodbye"]
-print dict[76]
+print dictionaryData["Hello"]
+print dictionaryData["Goodbye"]
+print dictionaryData[76]
 
 # Casting
 x = 3
@@ -87,12 +87,12 @@ else:
 
 # A simple game
 import _random
-randomNumber = random.randint(0,10)
-print randomNumber
-userGuess = int(raw_input("Guess number from 0:10 : "))
-while userGuess != randomNumber:
-    userGuess = int(raw_input("Guess again: "))
-print "Guessed"
+# randomNumber = random.randint(0,10)
+# print randomNumber
+# userGuess = int(raw_input("Guess number from 0:10 : "))
+# while userGuess != randomNumber:
+#     userGuess = int(raw_input("Guess again: "))
+# print "Guessed"
 
 # Functions
 def returnsString():
@@ -102,3 +102,29 @@ print returnsString()
 def pow(x):
     return x**x
 print pow(2)
+
+# Loops
+for item in listDisney:
+    print item
+
+for i in range(0,50):
+    print i
+
+# A simple class
+class Person:
+    name = ""
+
+    def __init__(self, name):
+        self.name = name
+
+    def sayGreeting(self):
+        # The "self" is necessary beacause "name" is already defined in the namespace in line 11
+        print "Hello, my name is " + self.name
+
+pippo = Person("Pippo")
+pluto = Person("Pluto")
+paperino = Person("Paperino")
+
+pippo.sayGreeting()
+pluto.sayGreeting()
+paperino.sayGreeting()
