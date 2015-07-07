@@ -236,3 +236,18 @@ import logging
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s|%(levelname)s|%(message)s')
 logging.info("This is a message")
+
+# Threads
+import threading
+class MyThread(threading.Thread):
+
+    def __init__(self,x):
+        self.__x=x
+        threading.Thread.__init__(self)
+
+    def run(self):
+        print str(self.__x)
+
+# Start 10 threads
+for i in range(10):
+    MyThread(i).start()
