@@ -29,9 +29,9 @@ print sentence.replace('tutorial', 'beginner\'s guide')
 name1 = "Pippo"
 name2 = "Pluto"
 if name1 == name2:
-    print "They are equal"
+	print "They are equal"
 else:
-    print "Not equal"
+	print "Not equal"
 
 # Some string methods
 print len(name1)
@@ -81,9 +81,9 @@ print int(x)
 x = 3
 y = 10
 if x < y:
-    print "X is smaller than y"
+	print "X is smaller than y"
 else:
-    print "X is bigger than y"
+	print "X is bigger than y"
 
 # A simple game
 import _random
@@ -96,35 +96,35 @@ import _random
 
 # Functions
 def returnsString():
-    return "A string"
+	return "A string"
 
 
 print returnsString()
 
 
 def pow(x):
-    return x ** x
+	return x ** x
 
 
 print pow(2)
 
 # Loops
 for item in listDisney:
-    print item
+	print item
 
 for i in range(0, 50):
-    print i
+	print i
 
 # A simple class
 class Person:
-    name = ""
+	name = ""
 
-    def __init__(self, name):
-        self.name = name
+	def __init__(self, name):
+		self.name = name
 
-    def sayGreeting(self):
-        # The "self" is necessary beacause "name" is already defined in the namespace in line 11
-        print "Hello, my name is " + self.name
+	def sayGreeting(self):
+		# The "self" is necessary beacause "name" is already defined in the namespace in line 11
+		print "Hello, my name is " + self.name
 
 
 pippo = Person("Pippo")
@@ -137,11 +137,11 @@ paperino.sayGreeting()
 
 # Inheritance
 class Programmer(Person):
-    def __init__(self, name):
-        self.name = name
+	def __init__(self, name):
+		self.name = name
 
-    def doing(self):
-        print "Learning python"
+	def doing(self):
+		print "Learning python"
 
 
 programmer = Programmer("Nerd")
@@ -150,17 +150,17 @@ programmer.doing()
 
 # Polymorphism with function
 class Bear(object):
-    def sound(self):
-        print "Groarrr"
+	def sound(self):
+		print "Groarrr"
 
 
 class Dog(object):
-    def sound(self):
-        print "Woof woof!"
+	def sound(self):
+		print "Woof woof!"
 
 
 def makeSound(animalType):
-    animalType.sound()
+	animalType.sound()
 
 
 bearObj = Bear()
@@ -171,46 +171,46 @@ makeSound(dogObj)
 
 # Polymorphism with class
 class Document:
-    def __init__(self, type):
-        self.type = type
+	def __init__(self, type):
+		self.type = type
 
-    def show(self):
-        raise NotImplementedError("Subclass must implement")
+	def show(self):
+		raise NotImplementedError("Subclass must implement")
 
 
 class documentPdf(Document):
-    def show(self):
-        return "PDF content"
+	def show(self):
+		return "PDF content"
 
 
 class documentRtf(Document):
-    def show(self):
-        return "RTF content"
+	def show(self):
+		return "RTF content"
 
 
 documents = [documentPdf("PDF"), documentRtf("RTF"), documentPdf("Other PDF")]
 
 for document in documents:
-    print document.type + ": " + document.show()
+	print document.type + ": " + document.show()
 
 # Factory patterns
 class Car(object):
-    def factory(type):
-        if type == "Racecar":
-            return Racecar()
-        if type == "Van":
-            return Van()
-        assert 0, "Bad car creation: " + type
+	def factory(type):
+		if type == "Racecar":
+			return Racecar()
+		if type == "Van":
+			return Van()
+		assert 0, "Bad car creation: " + type
 
-    factory = staticmethod(factory)
+	factory = staticmethod(factory)
 
 
 class Racecar(Car):
-    def drive(self): print("Racecar driving.")
+	def drive(self): print("Racecar driving.")
 
 
 class Van(Car):
-    def drive(self): print("Van driving.")
+	def drive(self): print("Van driving.")
 
 # Create object using factory.
 vehicleObject = Car.factory("Racecar")
@@ -223,10 +223,10 @@ sys.setrecursionlimit(5000)
 
 
 def factorial(n):
-    if n == 1:
-        return 1
-    else:
-        return n * factorial(n - 1)
+	if n == 1:
+		return 1
+	else:
+		return n * factorial(n - 1)
 
 
 print factorial(15)
@@ -239,15 +239,16 @@ logging.info("This is a message")
 
 # Threads
 import threading
+
+
 class MyThread(threading.Thread):
+	def __init__(self, x):
+		self.__x = x
+		threading.Thread.__init__(self)
 
-    def __init__(self,x):
-        self.__x=x
-        threading.Thread.__init__(self)
-
-    def run(self):
-        print str(self.__x)
+	def run(self):
+		print str(self.__x)
 
 # Start 10 threads
 for i in range(10):
-    MyThread(i).start()
+	MyThread(i).start()
